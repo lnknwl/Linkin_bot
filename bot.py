@@ -1,6 +1,7 @@
 from twitchio.ext import commands
 from config import get_bot_config
 from modules.commands import CommandModule
+from modules.joke_command import JokeCommand
 
 config = get_bot_config()
 
@@ -15,6 +16,7 @@ class TwitchBot(commands.Bot):
     async def event_ready(self):
         print(f"Бот {self.nick} подключен к каналу {config['channel']}")
         self.add_cog(CommandModule(self))
+        self.add_cog(JokeCommand(self))
 
     async def event_message(self, message):
         if message.echo:
