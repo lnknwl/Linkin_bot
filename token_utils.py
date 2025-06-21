@@ -1,6 +1,6 @@
 import requests
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, set_key
 
 load_dotenv()
 
@@ -28,21 +28,4 @@ def refresh_access_token(client_id, client_secret, refresh_token):
         return None, None
 
 def update_env_variable(key, value, filename=".env"):
-    if os.path.exists(filename):
-        with open(filename, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-    else:
-        lines = []
-
-    found = False
-    for i in range(len(lines)):
-        if lines[i].startswith(f"{key}="):
-            lines[i] = f"{key} = {value}\n"
-            found = True
-            break
-
-    if not found:
-        lines.append(f"{key}={value}\n")
-
-    with open(filename, "w", encoding="utf-8") as f:
-        f.writelines(lines)
+    set_key(filename, key, value)
