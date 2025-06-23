@@ -13,6 +13,7 @@ def get_bot_config():
 
     return {
         "access_token": access_token,
+        "client_id": client_id,
         "prefix": os.getenv("PREFIX"),
         "channel": os.getenv("TARGET_CHANNEL"),
         "bot_name": os.getenv("BOT_NAME")

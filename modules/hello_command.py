@@ -1,7 +1,7 @@
 import random
 from twitchio.ext import commands
 
-class CommandModule(commands.Cog):
+class HelloCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 

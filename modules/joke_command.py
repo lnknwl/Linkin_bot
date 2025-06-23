@@ -33,9 +33,9 @@ class JokeCommand(commands.Cog):
     async def joke(self, ctx):
         current_time = time.time()
         remain = current_time - self.last_joke_time
-        if remain < 90:
-            remaining = int(90 - remain)
-            await ctx.send(f"Следующий анекдот можно будет запросить через {pluralize_seconds(remaining)}.")
+        if remain < 60:
+            remaining = int(60 - remain)
+            await ctx.send(f"Следующий анекдот будет доступен через {pluralize_seconds(remaining)}.")
             return
 
         url = "https://baneks.ru/random"
@@ -75,10 +75,11 @@ class JokeCommand(commands.Cog):
                     print(f"[БАНВОРД] анекдот #{joke_id or '?'} отклонён")
                     continue
 
-                break
+                if len(joke) > 500:
+                    print(f"[ДЛИНА >500] анекдот #{joke_id or '?'} ({len(joke)} символов) пропущен")
+                    continue
 
-        if len(joke) > 490:
-            joke = joke[:487] + "..."
+                break
 
         await ctx.send(joke)
         self.last_joke_time = time.time()
