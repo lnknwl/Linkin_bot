@@ -8,9 +8,9 @@ class HelloCommand(commands.Cog):
     @commands.command(name="hello")
     async def hello(self, ctx):
         responses = [
-            f"Привет, {ctx.author.name}!",
-            f"Дарова, {ctx.author.name}!",
-            f"О, {ctx.author.name}! Рад тебя видеть!"
+            f"Привет, {ctx.author.display_name}!",
+            f"Дарова, {ctx.author.display_name}!",
+            f"О, {ctx.author.display_name}! Рад тебя видеть!"
         ]
         response = random.choice(responses)
         await ctx.send(response)

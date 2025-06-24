@@ -54,7 +54,7 @@ class FollowageCommand(BaseTwitchApiCog):
             data = await resp.json()
 
             if data.get("total", 0) == 0 or not data.get("data"):
-                await ctx.send(f"@{ctx.author.name}, вы не отслеживаете канал.")
+                await ctx.send(f"@{ctx.author.display_name}, вы не отслеживаете канал.")
                 return
 
             followed_at = data["data"][0]["followed_at"]
@@ -62,5 +62,5 @@ class FollowageCommand(BaseTwitchApiCog):
             delta = datetime.datetime.now(datetime.timezone.utc) - follow_date
 
             duration = self._format_follow_duration(delta)
-            await ctx.send(f"@{ctx.author.name}, вы отслеживаете канал уже {duration}.")
+            await ctx.send(f"@{ctx.author.display_name}, вы отслеживаете канал уже {duration}.")
 

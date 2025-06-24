@@ -17,7 +17,7 @@ class CoinFlipCommand(commands.Cog):
         elif result == "Решка":
             verb = "выпала"
         else:
-            await ctx.send(f"{ctx.author.name}, монета приземлилась на ребро! Что за удача?!")
+            await ctx.send(f"{ctx.author.display_name}, монета приземлилась на ребро! Что за удача?!")
             return
 
-        await ctx.send(f"{ctx.author.name}, {verb} {result}!")
+        await ctx.send(f"{ctx.author.display_name}, {verb} {result}!")

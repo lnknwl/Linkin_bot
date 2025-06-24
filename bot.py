@@ -32,6 +32,7 @@ class TwitchBot(commands.Bot):
         self.add_cog(CoinFlipCommand(self))
         self.add_cog(FactCommand(self))
         self.add_cog(HelpCommand(self))
+        self.add_cog(BugReportCommand(self))
 
     async def event_message(self, message):
         if message.echo:

@@ -6,7 +6,8 @@ from .fact_command import FactCommand
 from .followage_command import FollowageCommand
 from .cmd_list_command import HelpCommand
 from .music_command import MusicCommand
+from .bug_report_command import BugReportCommand
 
 __all__ = ["HelloCommand", "UptimeCommand", "JokeCommand", 
             "CoinFlipCommand", "FactCommand", "FollowageCommand",
-            "HelpCommand", "MusicCommand"]
+            "HelpCommand", "MusicCommand", "BugReportCommand"]

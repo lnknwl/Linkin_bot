@@ -5,5 +5,7 @@ modules/banwords.txt/
 music/__pycache__/
 music/requester.txt/
 music/title.txt/
+music/queue.json/
+logs/bus.json/
 
 .env
