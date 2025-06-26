@@ -33,6 +33,7 @@ class JokeCommand(commands.Cog):
     async def joke(self, ctx):
         current_time = time.time()
         remain = current_time - self.last_joke_time
+        
         if remain < 60:
             remaining = int(60 - remain)
             await ctx.send(f"Следующий анекдот будет доступен через {pluralize_seconds(remaining)}.")

@@ -52,12 +52,13 @@ class MusicPlayer:
     def add_to_queue(self, url, username):
         try:
             audio_url, title = self.get_audio_url(url)
-            self.queue.append((audio_url, title, username))
+            clean_title = self.clean_title(title)  # Очищаем заголовок
+            self.queue.append((audio_url, clean_title, username))
             self.save_queue()
 
             if not self.playing:
                 threading.Thread(target=self.play_queue, daemon=True).start()
-            
+
             return True
         except Exception as e:
             print(f"Ошибка добавления в очередь: {e}")
